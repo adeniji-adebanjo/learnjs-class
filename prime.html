@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="text">This is my first JavaScript file</p>
+
+    <script>
+      // alert("Hello World");
+      document.getElementById("text").innerHTML = "Emmanuel is doing a recap";
+
+      // console.log("Hello World");
+      var fish = 9;
+      var dog = 5;
+      var total = fish + dog + dog;
+      console.log(total);
+
+      var text = "This is a text";
+      var textName = 33;
+
+      const obj = {
+        Name: "Adewunmi",
+        Class: "Frontend development",
+        Academy: "innkeeper",
+        Age: 20,
+      };
+      console.log(obj.Class);
+
+      // var innkeeper = {
+      //   name: "Adewunmi",
+      //   class: "Frontend development",
+      //   location: "Magodo",
+      // };
+
+      // console.log(
+      //   "I am ${innkeeper.name} from ${innkeeper.class} in ${innkeeper.location}"
+      // );
+
+      var innkeeper = ["Adewunmi", "Frontend Development", "Magodo"];
+
+      console.log(
+        "I am " + innkeeper[0] + " from " + innkeeper[1] + " in " + innkeeper[2]
+      );
+
+      var session = [
+        ["fsd", "fwd", "dma", "uiux", "daa"],
+        ["Femi", "Tola", "Emmanuel", "Isaac"],
+      ];
+      var learn = ["virtual", "browser", "GitHub"];
+      console.log(learn[2]);
+      console.log(session.length);
+      console.log(session[1][3]);
+
+      var name = ["Marcus"];
+      var session = ["Frontend Development"];
+      var venue = ["Magodo"];
+      console.log("I am " + name[0] + "from " + session[0] + "in " + venue[0]);
+
+      let count = 0;
+      while (count < 10) {
+        console.log(count);
+        count++;
+      }
+      var a = 40;
+      var b = 21;
+      if (a < b) {
+        console.log("A is greater than B");
+      } else if (a > b) {
+        console.log("A is less than B");
+      }
+    </script>
+    <script src="/index.js"></script>
+  </body>
+</html>

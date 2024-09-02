@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Validation</title>
+    <style>
+      .valid {
+        color: green;
+      }
+      .invalid {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Password Validator</h1>
+    <label for="passwordInput">Enter your password:</label>
+    <input type="password" id="passwordInput" />
+    <button id="validateButton">Validate</button>
+    <p id="result"></p>
+
+    <h2>Password must meet the following criteria:</h2>
+    <ul>
+      <li id="lengthCriteria" class="invalid">At least 8 characters long</li>
+      <li id="uppercaseCriteria" class="invalid">
+        Contains at least one uppercase letter
+      </li>
+      <li id="numberCriteria" class="invalid">Contains at least one number</li>
+      <li id="spaceCriteria" class="invalid">Does not contain spaces</li>
+    </ul>
+
+    <script>
+      document
+        .getElementById("passwordInput")
+        .addEventListener("input", function () {
+          const password = document.getElementById("passwordInput").value;
+
+          // Check if password is at least 8 characters long
+          const hasMinimumLength = password.length >= 8;
+          updateCriteria("lengthCriteria", hasMinimumLength);
+
+          // Check if password contains at least one uppercase letter
+          const hasUppercase = /[A-Z]/.test(password);
+          updateCriteria("uppercaseCriteria", hasUppercase);
+
+          // Check if password contains at least one number
+          const hasNumber = /[0-9]/.test(password);
+          updateCriteria("numberCriteria", hasNumber);
+
+          // Check if password does not contain spaces
+          const hasNoSpaces = !/\s/.test(password);
+          updateCriteria("spaceCriteria", hasNoSpaces);
+        });
+
+      document
+        .getElementById("validateButton")
+        .addEventListener("click", function () {
+          const password = document.getElementById("passwordInput").value;
+
+          const hasMinimumLength = password.length >= 8;
+          const hasUppercase = /[A-Z]/.test(password);
+          const hasNumber = /[0-9]/.test(password);
+          const hasNoSpaces = !/\s/.test(password);
+
+          if (hasMinimumLength && hasUppercase && hasNumber && hasNoSpaces) {
+            document.getElementById("result").textContent =
+              "Password is valid!";
+          } else {
+            document.getElementById("result").textContent =
+              "Password is invalid. Please meet all the criteria.";
+          }
+        });
+
+      function updateCriteria(criteriaId, isValid) {
+        const element = document.getElementById(criteriaId);
+        if (isValid) {
+          element.classList.remove("invalid");
+          element.classList.add("valid");
+        } else {
+          element.classList.remove("valid");
+          element.classList.add("invalid");
+        }
+      }
+    </script>
+  </body>
+</html>
